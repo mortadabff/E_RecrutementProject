@@ -1,0 +1,145 @@
+﻿@model E_RecrutementProject.Models.Offre
+
+@{
+    ViewBag.Title = "Postuler";
+}
+
+@{
+    try
+    {
+        if (TempData["msg"] != null)
+        {
+            <label style="color:red;"> @TempData["msg"]</label>
+        }
+    }
+    catch
+    {
+        <label style="color:red;"> @TempData["msg"]</label>
+    }
+}
+
+<main style=" display: flex; flex-wrap: wrap;">
+
+    <!--   Pour le formulaire de condidature -->
+    <div class="container mt-5" style="max-width: 50rem;  flex: 0 0 calc(50% - 20px); margin: 5px;">
+        <h2>Formulaire de Candidature</h2>
+        @using (Html.BeginForm("SoummettrePostuler", "TrouverPoste", FormMethod.Get))
+        {
+
+
+            <form>
+                <!-- Nom et Prénom -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nom">Nom</label>
+                        <input name="nom" type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="prenom">Prénom</label>
+                        <input name="prenom" type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom">
+                    </div>
+                </div>
+
+                <!-- Âge et Nationalité -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="age">Âge</label>
+                        <input name="age" type="number" class="form-control" id="age" placeholder="Entrez votre âge">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nationalite">Nationalité</label>
+                        <input name="nationalite" type="text" class="form-control" id="nationalite" placeholder="Entrez votre nationalité">
+                    </div>
+                </div>
+
+                <!-- Niveau d'Étude -->
+                <div class="form-group">
+                    <label for="niveauEtude">Niveau d'Étude</label>
+                    <select name="niveauEtude" class="form-control" id="niveauEtude">
+                        <option selected disabled>Choisissez votre niveau d'étude</option>
+                        <option>Bac</option>
+                        <option>Bac+2</option>
+                        <option>Bac+3</option>
+                        <option>Bac+5</option>
+                        <option>PhD</option>
+                    </select>
+                </div>
+
+                <!-- Diplômes Obtenu -->
+                <div class="form-group">
+                    <label for="diplomes">Diplômes Obtenu</label>
+                    <textarea name="diplome" class="form-control" id="diplomes" rows="3" placeholder="Listez vos diplômes obtenus"></textarea>
+                </div>
+
+
+                <br />
+
+
+
+                <!-- Années d'Expérience -->
+                <div class="form-group">
+                    <label for="anneesExperience">Années d'Expérience</label>
+                    <input name="anneesExperience" type="number" class="form-control" id="anneesExperience" placeholder="Entrez le nombre d'années d'expérience">
+                </div>
+
+                <br />
+
+
+                <!--  Motivation -->
+                <div class="form-group">
+                    <label for="diplomes"> Votre lettre Motivation </label>
+                    <textarea name="motivation" class="form-control" id="motivation" rows="3" placeholder="Pourquoi vous voulez ce travail !! ecrivez ... "></textarea>
+                </div>
+
+                <br />
+                @Html.HiddenFor(model => model.Id)
+
+                <!-- Bouton Soumettre -->
+                <button type="submit" class="btn btn-primary">Soumettre</button>
+            </form>
+        }
+    </div>
+
+
+
+    <!--   Pour afficher plus de details sur lo''ffre-->
+    <div class="container mt-5" id="DetailsDeLoffre" style="max-width: 50rem; flex: 0 0 calc(50% - 20px); margin: 5px;">
+
+        <h2>Details de l'offre </h2>
+        <div class="card-header" style="background-color:darkslategray; ">
+            Contrat : @Html.DisplayFor(modelItem => Model.TypeContrat)
+
+        </div>
+        <img src="~/Ressources/icons8-travail-50 (2).png" />
+        <div class="card-body">
+            <h4 class="card-title">
+                @Html.DisplayNameFor(model => model.Poste) : @Html.DisplayFor(modelItem => Model.Poste)
+            </h4>
+            <ul>
+                <li>
+                    @Html.DisplayNameFor(model => model.Profil): @Html.DisplayFor(modelItem => Model.Profil)
+                </li>
+                <li>
+                    @Html.DisplayNameFor(model => model.Secteur):@Html.DisplayFor(modelItem => Model.Secteur)
+                </li>
+                <li>
+                    @Html.DisplayNameFor(model => model.Remuneration):@Html.DisplayFor(modelItem => Model.Remuneration)
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</main>
+<br />
+<br />
+<hr />
+
+<p style="margin-left:45%;">
+
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
+

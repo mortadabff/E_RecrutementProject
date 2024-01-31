@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<main aria-labelledby="title">
+    <fieldset class="form-group">
+        <legend class="mt-4">Feedback</legend>
+        <br />
+        <ol>
+            <li>
+                <label for="customRange1" class="form-label"> Facilité de navigation et de recherche de postes </label>
+                <input style="margin-left:100px;" type="range" class="form-range" id="customRange1">
+            </li>
+            <br />
+            <li>
+                <label for="disabledRange" class="form-label"> Rapidité de la plateforme  </label>
+                <input style="margin-left:245px;" type="range" class="form-range" id="customRange1">
+            </li>
+            <br />
+            <li>
+                <label for="customRange3" class="form-label"> le Design de la plateforme ? </label>
+                <input style="margin-left:225px;" type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+            </li>
+        </ol>
+    </fieldset>
+   
+    <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4">Vos Remarques et propositions</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <br /><br /><br />
+    <div style="margin-left:30%;" id="contactInfo">
+        <h3> La plateforme est développée par :</h3>
+        <address>
+            <strong>
+
+                <ul>
+                    <li> <a href="mailto:Bouzaffourmortada3@gmail.com" target="_blank"> BOUZAFFOUR Mortada</a> <a style="margin-left:90px;" href="mailto:Bouzaffourmortada3@gmail.com" target="_blank">  > Mail</a><br /> </li>
+                    <li><a href="mailto:alioabd194@gmail.com" target="_blank">OUABED Ali</a> <a style="margin-left:170px;" href="mailto:alioabd194@gmail.com.com" target="_blank">  > Mail</a></li>
+                </ul>
+            </strong>
+
+            Ecole Hassania des trvaux publics (EHTP) Casablanca <br />
+
+        </address>
+    </div>
+
+
+
+
+
+
+
+    <!-- n'hesitez pas d'ajouter un vue maps avec bootstrap  ? -->
+</main>

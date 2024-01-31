@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mon application ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("EHTP  E-Recrutement ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Activer/désactiver la navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href=@Url.Action("Index", "TrouverPoste")> Trouver un Travail </a>
+                        <span class="visually-hidden">(current)</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href=@Url.Action("Index", "Offres")>
+                            Espace Recruteur
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+
+                    <!-- if "class="nav-link active" " alors il sera afficheer en blanc n highlited n if class="nav-link" non ok -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href=@Url.Action("About", "Home")> A propos </a>
+
+                    </li>
+                    <!--  <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+             <div class="dropdown-menu">
+                 <a class="dropdown-item" href="#">Action</a>
+                 <a class="dropdown-item" href="#">Another action</a>
+                 <a class="dropdown-item" href="#">Something else here</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">Separated link</a>
+             </div>
+         </li>
+        -->
+
+                </ul>
+                @try
+                {
+                    if (Session["userName"] != null)
+                    {
+                        <div style="margin-right: 10px;">
+                            <label> Bonjour @Session["userName"]</label>
+                        </div>
+                        <div style=" margin-right: 5px;">
+                            @using (Html.BeginForm("Logout", "Authentification", FormMethod.Post))
+                            {
+                                <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+                                <button type="submit" style="background-color: green; color: blanchedalmond;"> Se Deconnecter </button>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="margin-right: 10px;">
+                            @using (Html.BeginForm("RegisterPage", "Authentification", FormMethod.Post))
+                            {
+                                <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+                                <button type="submit" style="background-color:green; color: blanchedalmond;"> S'inscrire </button>
+                            }
+                        </div>
+                        <div style=" margin-right: 5px;">
+                            @using (Html.BeginForm("LoginPage", "Authentification", FormMethod.Post))
+                            {
+                                <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+                                <button type="submit" style="background-color: green; color: blanchedalmond;"> Se Connecter </button>
+                            }
+                        </div>
+                    }
+                }
+                catch
+                {
+                    <div style="margin-right: 10px;">
+                        @using (Html.BeginForm("RegisterPage", "Authentification", FormMethod.Post))
+                        {
+                            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+                            <button type="submit" style="background-color:green; color: blanchedalmond;"> S'inscrire </button>
+                        }
+                    </div>
+                    <div style=" margin-right: 5px;">
+                        @using (Html.BeginForm("LoginPage", "Authentification", FormMethod.Post))
+                        {
+                            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+                            <button type="submit" style="background-color: green; color: blanchedalmond;"> Se Connecter </button>
+                        }
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - EHTP  E-Recrutement</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿@{
+    try
+    {
+        if (Session["userId"] != null && Session["userName"] != null)
+        {
+            <h2 style="color:red;"> Attention </h2>
+            <label style="color:red;"> @Session["userName"]</label>
+            <br />
+            <h4 style="color:red;">Vous etes sur de vouloir supprimer toutes les Offres ?!!</h4>
+        }
+    }
+    catch
+    {
+        <label style="color:red;"> @TempData["msg"]</label>
+        <label style="color:red;"> Pa de Login ? </label>
+
+    }
+}
+
+

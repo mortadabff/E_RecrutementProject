@@ -1,0 +1,64 @@
+﻿@model E_RecrutementProject.Models.Offre
+
+@{
+    ViewBag.Title = "EspaceEntretiens";
+}
+
+
+<h2>Espace Recruteur : Gérer vos Offres</h2>
+<br />
+
+
+
+<div style=" display: flex; flex-wrap: wrap;">
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px;">
+        @using (Html.BeginForm("Index", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color:burlywood; color:blue;">Mon Espace</button>
+        }
+    </div>
+
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px;">
+        @using (Html.BeginForm("Create", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: green; color: blanchedalmond;">Créer Offre</button>
+        }
+    </div>
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px;">
+        @using (Html.BeginForm("Statistiques", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: green; color: blanchedalmond;">Statistiques</button>
+        }
+    </div>
+
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px;">
+
+        @using (Html.BeginForm("EspaceEntretiens", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: green; color: blanchedalmond;">Espace Entretiens</button>
+        }
+    </div>
+
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px; ">
+        @using (Html.BeginForm("SupprimerTous", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: red; color: blanchedalmond;"> Supprimer Tous </button>
+        }
+    </div>
+
+</div>
+
+<hr />
+
+<h2>Planification des différents Entretiens programmés</h2>
+

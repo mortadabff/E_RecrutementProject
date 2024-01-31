@@ -1,0 +1,166 @@
+﻿
+
+
+
+@{
+    try
+    {
+        if (TempData["msg"] != null)
+        {
+            <label style="color:red;"> @TempData["msg"]</label>
+        }
+    }
+    catch
+    {
+        <label style="color:red;"> @TempData["msg"]</label>
+    }
+}
+<h2>Formulaires d'inscription</h2>
+
+
+
+<div class="container mt-5" style="margin-left:10%;" >
+    <div style=" display: flex; flex-wrap: wrap; margin-left:07%;">
+        <div style="flex: 0 0 calc(45% - 10px); margin: 5px;">
+            @using (Html.BeginForm("RegisterRecruteur", "Authentification", FormMethod.Get))
+            {
+                <h4> S'inscrire en tant que Recruteur </h4>
+
+                <form >
+                    <!-- Nom et Prénom -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nom">Nom</label>
+                            <input name="nom" type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="prenom">Prénom</label>
+                            <input name="prenom" type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom">
+                        </div>
+                    </div>
+                    <br />
+                    <!-- EMail and password -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="Email">Email :</label>
+                            <input name="email" type="text" class="form-control" id="email" placeholder="Entrez un courier valide">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Password :</label>
+                            <input name="password1" type="password" class="form-control" id="password" placeholder="Entrez un mot de passe ">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="confirmerPassword"> Confirmer Password :</label>
+                            <input name="password2" type="password" class="form-control" id="confirmerPassword" placeholder="Entrer de nouveaux le meme mot de passe ">
+                        </div>
+                    </div>
+                    <br />
+
+                    <!-- Tel -->
+                    <div class="form-group col-md-6">
+                        <label for="tel">Téléphone :</label>
+                        <input name="tel" type="text" class="form-control" id="tel" placeholder="Tel ">
+                    </div>
+
+
+                    <!-- Pour la  societe -->
+                    <div class="form-group col-md-6">
+                        <label for="nomSociete">Nom de la Societe :</label>
+                        <input name="nomSociete" type="text" class="form-control" id="nomSociete" placeholder="nom de la Societe/entreprise ">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="domaineSociete">Domaine d'expertise' :</label>
+                        <input name="domaineSociete" type="text" class="form-control" id="domaineSociete" placeholder=" Domaine d'expertise'">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="effectifSociete"> Effectif :</label>
+                        <input name="effectifSociete" type="number" class="form-control" id="effectifSociete" placeholder="Effectif ">
+                    </div>
+
+
+
+                    <br />
+                    <!-- Bouton Soumettre -->
+                    <button type="submit"   class="btn btn-primary">S'inscrire</button>
+                </form>
+
+            }
+        </div>
+        <div style="flex: 0 0 calc(50% - 10px); margin: 5px;">
+            @using (Html.BeginForm("RegisterCandidat", "Authentification", FormMethod.Get))
+            {
+                <h4> S'inscrire en tant que Candidat </h4>
+                <form >
+                   
+
+                    <!-- Nom et Prénom -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nom">Nom</label>
+                            <input name="nom" type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="prenom">Prénom</label>
+                            <input name="prenom" type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom">
+                        </div>
+                    </div>
+                    <br />
+                    <!-- EMail and password -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="Email">Email :</label>
+                            <input name="email" type="text" class="form-control" id="email" placeholder="Entrez un courier valide">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password"> Password :</label>
+                            <input name="password1" type="password" class="form-control" id="password" placeholder="Entrez un mot de passe ">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="confirmerPassword"> Confimer Password :</label>
+                            <input name="password2" type="password" class="form-control" id="confirmerPassword" placeholder="Entrer de nouveaux le meme mot de passe ">
+                        </div>
+                    </div>
+                    <br /> 
+                    
+                    <div class="form-group col-md-6">
+                        <label for="tel">Téléphone :</label>
+                        <input name="tel" type="text" class="form-control" id="tel" placeholder="Tel ">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="diplome">Diplome :</label>
+                        <input name="diplome" type="text" class="form-control" id="diplome" placeholder="diplome ">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="age">Age :</label>
+                        <input name="age" type="number" class="form-control" id="age" placeholder="age ">
+                    </div>
+
+                    
+
+                    <br />
+                    <!-- Bouton Soumettre -->
+                    <button type="submit" v class="btn btn-primary">S'inscrire</button>
+                </form>
+
+            }
+        </div>
+    </div>
+
+    <br />
+
+    <hr />
+
+    <p style="margin-left:28%;">
+        <strong>@Html.ActionLink("J'ai déjà un compte", "LoginPage")  </strong>
+         ||
+        <strong> @Html.ActionLink("Page d'acceuil", "Home/Index")  </strong> 
+    </p>
+
+</div>
+
+
+
+
+

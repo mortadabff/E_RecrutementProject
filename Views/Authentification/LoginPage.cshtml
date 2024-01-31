@@ -1,0 +1,56 @@
+﻿
+
+@{
+    try
+    {
+        if (TempData["msg"] != null)
+        {
+            <label style="color:red;"> @TempData["msg"]</label>
+        }
+    }
+    catch
+    {
+        <label style="color:red;"> @TempData["msg"]</label>
+    }
+}
+<div class="container mt-5">
+    <h2>Formulaire de connexion</h2>
+    @using (Html.BeginForm("Login", "Authentification", FormMethod.Get))
+    {
+        <form>
+            <!-- EMail and password -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Email">Email :</label>
+                    <input name="email" type="text" class="form-control" id="email" placeholder="Entrez un courier valide">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="password">Password :</label>
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Entrez un mot de passe ">
+                </div>
+
+            </div>
+            <br />
+
+            <!-- Bouton Soumettre -->
+            <button type="submit" class="btn btn-primary" value="Login">Se Conecter</button>
+        </form>
+    }
+
+    <br />
+
+    @Html.ActionLink("S'inscrire ? !", "RegisterPage")
+
+</div>
+
+
+
+
+<br />
+<br />
+<hr />
+
+<p style="margin-left:45%;">
+
+    @Html.ActionLink("Page d'acceuil", "Home/Index")
+</p>

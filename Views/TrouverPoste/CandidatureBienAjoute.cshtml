@@ -1,0 +1,63 @@
+﻿
+
+@model E_RecrutementProject.Models.Offre
+
+@{
+    ViewBag.Title = "Postuler";
+}
+
+
+
+<main style=" display: flex; flex-wrap: wrap;">
+
+    <!--   Pour le formulaire de condidature -->
+    <div class="container mt-5" style="max-width: 50rem;  flex: 0 0 calc(50% - 20px); margin: 5px;">
+        <h2>Candidature a été bien ajoutée</h2>
+
+        @Html.ActionLink("Retour à la page précédente", "Index")
+
+    </div>
+
+
+
+    <!--   Pour afficher plus de details sur lo''ffre-->
+    <div class="container mt-5" id="DetailsDeLoffre" style="max-width: 50rem; flex: 0 0 calc(50% - 20px); margin: 5px;">
+
+        <h2>Details de l'offre </h2>
+        <div class="card-header" style="background-color:darkslategray; ">
+            Contrat : @Html.DisplayFor(modelItem => Model.TypeContrat)
+
+        </div>
+        <img src="~/Ressources/icons8-travail-50 (2).png" />
+        <div class="card-body">
+            <h4 class="card-title">
+                @Html.DisplayNameFor(model => model.Poste) : @Html.DisplayFor(modelItem => Model.Poste)
+            </h4>
+            <ul>
+                <li>
+                    @Html.DisplayNameFor(model => model.Profil): @Html.DisplayFor(modelItem => Model.Profil)
+                </li>
+                <li>
+                    @Html.DisplayNameFor(model => model.Secteur):@Html.DisplayFor(modelItem => Model.Secteur)
+                </li>
+                <li>
+                    @Html.DisplayNameFor(model => model.Remuneration):@Html.DisplayFor(modelItem => Model.Remuneration)
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</main>
+<br />
+<br />
+<hr />
+
+<p style="margin-left:45%;">
+
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
+

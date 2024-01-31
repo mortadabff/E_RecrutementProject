@@ -1,0 +1,187 @@
+﻿
+@model IEnumerable<E_RecrutementProject.Models.Offre>
+
+
+
+<main style=" display: flex; flex-wrap: wrap;">
+    <section id="SectionOffresDisponibles"  style="flex: 0 0 calc(75% - 10px); margin: 5px;">
+        <div class="card text-white bg-primary mb-3" style="max-width: 70rem; " display: flex; flex-wrap: wrap;">
+
+            <div class="card-header">Bienvenue </div>
+            <div class="card-body">
+                <h4 class="card-title">  Bienvenue cher Candidat </h4>
+                <p class="card-text">   Trouver le bon poste pour vous , Explorez les offres disponibles et postulez  </p>
+            </div>
+
+            
+            <div style="display: flex; flex-wrap: wrap; ">
+                @foreach (var item in Model)
+                 {
+                    <div class="card border-primary mb-3" style="max-width: 30rem;  flex: 0 0 calc(25% - 10px); margin: 5px; background-color: #f2f2f2;">
+                        <div class="card-header" style="background-color:darkslategray; ">
+                            Contrat : @Html.DisplayFor(modelItem => item.TypeContrat)
+
+                        </div>
+                        <img src="~/Ressources/icons8-travail-50.png" style="height: 80px; width: 80px; margin: 10%; margin-left: 30%;"/>
+                        <hr />
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                @Html.DisplayNameFor(model => model.Poste) : @Html.DisplayFor(modelItem => item.Poste)
+                            </h4>
+                            <ul>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Profil): @Html.DisplayFor(modelItem => item.Profil)
+                                </li>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Secteur):@Html.DisplayFor(modelItem => item.Secteur)
+                                </li>
+                                <li>
+                                    @Html.DisplayFor(modelItem => item.Remuneration)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card border-primary mb-3">
+
+                            <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-bs-original-title="Popover Title" style="background-color:darkslategray;">
+                                @Html.ActionLink("Postuler", "Postuler", new { id = item.Id })
+                            </button>
+                            <br />
+                            
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <Section id="SectionFiltre " style="flex: 0 0 calc(25% - 10px); margin: 5px;">
+        <div class="card text-white bg-primary mb-3" style="max-width: 70rem; " display: flex; flex-wrap: wrap;">
+
+            <div class="card-header">Filtres </div>
+
+            <div class="card-body">
+                <h4 class="card-title">  </h4>
+
+                <br />
+                <br />
+                @using (Html.BeginForm("ChercherOffres", "TrouverPoste", FormMethod.Get))
+                {
+                    <form class="d-flex">
+                        <input name="motCle" class="form-control me-sm-2" type="search" placeholder="Entrer un mot clé">
+                        <button type="submit" class="btn btn-secondary my-2 my-sm-0" style="background-color:coral; color: blanchedalmond;">Chercher</button>
+
+                        <!--    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Chercher</button>-->
+                    </form>
+
+                }
+
+                <!--
+                    <form class="d-flex">
+                        <input class="form-control me-sm-2" type="search" placeholder="Entrer un mot clé">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Chercher</button>
+                    </form>
+
+    -->
+                <hr />
+                <br />
+                <br />
+
+
+                <ul class="nav nav-pills" style=" display:inline;">
+                    <!-- potste-->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Poste</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false"> choisir</a>
+                        <div class="dropdown-menu" style="">
+                            <h6 class="dropdown-header">Dropdown header</h6>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+
+
+
+
+                    <!-- Secteur-->
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Secteur</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> choisir</a>
+                        <div class="dropdown-menu" style="">
+                            <h6 class="dropdown-header">Dropdown header</h6>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+
+
+                    <!--Profil-->
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Profil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> choisir</a>
+                        <div class="dropdown-menu" style="">
+                            <h6 class="dropdown-header">Dropdown header</h6>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+
+                    <!-- Lieu-->
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Lieu</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> choisir</a>
+                        <div class="dropdown-menu" style="">
+                            <h6 class="dropdown-header">Dropdown header</h6>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+
+                    <!-- Remunération-->
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Rémunération</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> choisir </a>
+                        <div class="dropdown-menu" style="">
+                            <h6 class="dropdown-header">Dropdown header</h6>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </Section>
+
+</main>

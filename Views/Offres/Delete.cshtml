@@ -1,0 +1,127 @@
+﻿@model E_RecrutementProject.Models.Offre
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Espace Recruteur : Gérer vos Offres</h2>
+<br />
+
+
+
+<div style=" display: flex; flex-wrap: wrap;">
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px;">
+        @using (Html.BeginForm("Index", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: burlywood; color: blue;">Mon Espace</button>
+        }
+    </div>
+
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px;">
+        @using (Html.BeginForm("Create", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: green; color: blanchedalmond;">Créer Offre</button>
+        }
+    </div>
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px;">
+        @using (Html.BeginForm("Statistiques", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: green; color: blanchedalmond;">Statistiques</button>
+        }
+    </div>
+
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px;">
+
+        @using (Html.BeginForm("EspaceEntretiens", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: green; color: blanchedalmond;">Espace Entretiens</button>
+        }
+    </div>
+
+    <div style="flex: 0 0 calc(20% - 10px); margin: 5px; ">
+        @using (Html.BeginForm("SupprimerTous", "Offres", FormMethod.Get))
+        {
+            <!-- Ajoutez ici les champs du formulaire si nécessaire -->
+
+            <button type="submit" style="background-color: red; color: blanchedalmond;"> Supprimer Tous </button>
+        }
+    </div>
+
+</div>
+
+<hr />
+
+
+<h4 style="color:red;">Vous etes sur de vouloi supprimer cette Offre ?!!</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRecruteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRecruteur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeContrat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeContrat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secteur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Poste)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remuneration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remuneration)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" style="background-color:red; color:blanchedalmond;" />   |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
